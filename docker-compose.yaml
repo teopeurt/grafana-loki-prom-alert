@@ -77,21 +77,21 @@ services:
       retries: 3
 
   # Alertmanager for alerts
-  alertmanager:
-    image: prom/alertmanager:latest
-    container_name: alertmanager
-    # ports:
-    #   - "9093:9093"
-    volumes:
-      - ./alertmanager/alertmanager.yml:/etc/alertmanager/alertmanager.yml:ro
-      - alertmanager-data:/alertmanager
-    command:
-      - '--config.file=/etc/alertmanager/alertmanager.yml'
-      - '--storage.path=/alertmanager'
-      - '--web.external-url=http://localhost:9093'
-    networks:
-      - observability
-    restart: unless-stopped
+  # alertmanager:
+  #   image: prom/alertmanager:latest
+  #   container_name: alertmanager
+  #   # ports:
+  #   #   - "9093:9093"
+  #   volumes:
+  #     - ./alertmanager/alertmanager.yml:/etc/alertmanager/alertmanager.yml:ro
+  #     - alertmanager-data:/alertmanager
+  #   command:
+  #     - '--config.file=/etc/alertmanager/alertmanager.yml'
+  #     - '--storage.path=/alertmanager'
+  #     - '--web.external-url=http://localhost:9093'
+  #   networks:
+  #     - observability
+  #   restart: unless-stopped
 
   # Optional: Nginx reverse proxy for external access
   nginx:
